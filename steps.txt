@@ -1,0 +1,16 @@
+
+
+terraform init -upgrade
+
+terraform fmt
+terraform validate
+
+ssh-keygen -t rsa -b 2048 -m PEM
+openssl rsa -in id_rsa -outform PEM -out id_rsa.pem
+
+
+
+
+terraform plan -out main.tfplan
+terraform apply main.tfplan
+terraform plan -destroy -out main.destroy.tfplan
